@@ -31,6 +31,8 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
         stepsWrite.setTextToWhom("testavtomatone@mail.ru"); //Вводим почту в поле "Кому"
         stepsWrite.setTextSubjectLetter("Письмо от автотеста"); //Вводим тему письма
+        stepsWrite.setTextContentLetter("Письмо отправлено автотестом. Пусть сам и отвечает");  //Вводим текст письма
+        stepsWrite.setButtonSendMail(); //Отправляем письмо
 
     }
 

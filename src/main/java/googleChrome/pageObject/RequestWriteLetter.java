@@ -61,4 +61,24 @@ public class RequestWriteLetter extends BrowserParameters {
     /**
      * xpath Содержимое письма.
      */
+
+    @FindBy(xpath = ".//div[@role='textbox']/div")
+    WebElement textContentLetter;
+
+    public void setTextContentLetter(final String text){
+
+        sendText(textContentLetter, text);
+    }
+
+    /**
+     * xpath нажатия кнопки "Отправить".
+     */
+
+    @FindBy(xpath = ".//span[text()='Отправить']")
+    WebElement buttonSendMail;
+
+    public void setButtonSendMail(){
+
+        click(buttonSendMail);
+    }
 }
