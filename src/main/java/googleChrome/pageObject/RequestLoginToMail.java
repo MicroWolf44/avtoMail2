@@ -5,10 +5,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class XpathRequest extends BrowserParameters {
+public class RequestLoginToMail extends BrowserParameters {
 
 
-    public XpathRequest(WebDriver driver) {
+    public RequestLoginToMail(WebDriver driver) {
         super(driver);
     }
 
