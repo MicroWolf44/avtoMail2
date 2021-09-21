@@ -1,5 +1,6 @@
 package tests.googleTest.mailInGoogleChrome;
 
+import googleChrome.pageObject.RequestCheckLetter;
 import googleChrome.pageObject.RequestLoginToMail;
 import googleChrome.pageObject.RequestWriteLetter;
 import org.junit.Test;
@@ -12,6 +13,7 @@ public class StepsTest extends GoogleBrowserWatcher {
 
         RequestLoginToMail stepsLogin = new RequestLoginToMail(getDriver());
         RequestWriteLetter stepsWrite = new RequestWriteLetter(getDriver());
+        RequestCheckLetter stepsCheck = new RequestCheckLetter(getDriver());
 
         /**
          * Шаги входа в почту.
