@@ -1,5 +1,6 @@
 package googleChrome.base;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -28,6 +29,20 @@ public class BrowserParameters {
 
         try {
             webDriverWait.until(ExpectedConditions.visibilityOf(element));
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    protected boolean waitOfElement(final String xpath){
+
+        WebDriverWait webDriverWait = new WebDriverWait(driver, timeOut);
+
+        try {
+            webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
             return true;
         }
         catch (Exception e){
