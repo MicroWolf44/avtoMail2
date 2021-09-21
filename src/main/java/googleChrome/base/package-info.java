@@ -2,4 +2,4 @@
  * Пакедж с базовыми классами.
  */
 
-package MailGoogleChrome.Base;
+package googleChrome.base;

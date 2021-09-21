@@ -1,6 +1,6 @@
-package MailGoogleChrome.PageObject;
+package googleChrome.pageObject;
 
-import MailGoogleChrome.Base.BrowserParameters;
+import googleChrome.base.BrowserParameters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;

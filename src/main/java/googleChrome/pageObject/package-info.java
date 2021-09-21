@@ -2,4 +2,4 @@
  * Пакедж описания страницы.
  */
 
-package MailGoogleChrome.PageObject;
+package googleChrome.pageObject;

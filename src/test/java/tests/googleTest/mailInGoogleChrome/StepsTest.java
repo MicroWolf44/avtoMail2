@@ -1,6 +1,6 @@
 package tests.googleTest.mailInGoogleChrome;
 
-import MailGoogleChrome.PageObject.XpathRequest;
+import googleChrome.pageObject.XpathRequest;
 import org.junit.Test;
 import tests.googleTest.GoogleBrowserWatcher;
 

@@ -2,4 +2,4 @@
  * Пакедж для вспомогательных классов.
  */
 
-package MailGoogleChrome;
+package googleChrome;
