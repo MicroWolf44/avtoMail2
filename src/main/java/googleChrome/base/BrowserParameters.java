@@ -57,7 +57,7 @@ public class BrowserParameters {
     /**
      * Инициирование ввода адреса в адресную строку и максимизация окна.
      */
-    public void gotoURL (final String url){
+    public void goToURL(final String url){
 
         getDriver().get(url);
         getDriver().manage().window().maximize(); //Развернуть во весь экран

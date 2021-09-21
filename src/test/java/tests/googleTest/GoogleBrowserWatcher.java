@@ -13,46 +13,43 @@ import java.net.URL;
 public class GoogleBrowserWatcher extends ConnectWebDriver {
 
     @Rule
-    public TestWatcher watcher;
-    {
-        watcher = new TestWatcher() {
+    public TestWatcher watcher = new TestWatcher() {
 
-            @Override
-            protected void starting(Description description) {
+        @Override
+        protected void starting(Description description) {
 
-                ChromeOptions chromeOptions = new ChromeOptions();
-                DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
-                desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
-                URL urlHab = null;
+            ChromeOptions chromeOptions = new ChromeOptions();
+            DesiredCapabilities desiredCapabilities = DesiredCapabilities.chrome();
+            desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+            URL urlHab = null;
 
-                try {
-                    urlHab = new URL(googleUrl + "/wd/hub");
-                }
-                catch (MalformedURLException e){
-                    e.printStackTrace();
-                }
-                driver =  new RemoteWebDriver(urlHab, desiredCapabilities);
-
+            try {
+                urlHab = new URL(googleUrl + "/wd/hub");
             }
-
-            @Override
-            protected void succeeded(Description description) {
+            catch (MalformedURLException e){
+                e.printStackTrace();
             }
+            driver =  new RemoteWebDriver(urlHab, desiredCapabilities);
 
-            @Override
-            protected void failed(Throwable e, Description description) {
-            }
+        }
 
-            @Override
-            protected void finished(Description description) {
+        @Override
+        protected void succeeded(Description description) {
+        }
 
+        @Override
+        protected void failed(Throwable e, Description description) {
+        }
+
+        @Override
+        protected void finished(Description description) {
+
+            driver.quit();
+            if (driver != null){
                 driver.quit();
-                if (driver != null){
-                    driver.quit();
-                }
-
             }
-        };
-    }
+
+        }
+    };
 
 }

@@ -14,7 +14,8 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги выполнения теста.
          */
-        testOne.gotoURL("https://mail.ru/");    //Вводим адрес в адресную строку
+
+        testOne.goToURL("https://mail.ru/");    //Вводим адрес в адресную строку
         testOne.setTextToLogin("testavtomatone@mail.ru");   //Вводим почту
         testOne.setButtonEnterPassword();   //Нажимаем кнопку "Ввести пароль"
         testOne.setTextToPassword("A1v2t3o4");  //Вводим пароль от почты
