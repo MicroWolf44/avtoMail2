@@ -1,14 +1,14 @@
 package MailGoogleChrome.PageObject;
 
-import MailGoogleChrome.Base.BaseGoogle;
+import MailGoogleChrome.Base.BrowserParameters;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class MailStart extends BaseGoogle{
+public class XpathRequest extends BrowserParameters {
 
 
-    public MailStart(WebDriver driver) {
+    public XpathRequest(WebDriver driver) {
         super(driver);
     }
 

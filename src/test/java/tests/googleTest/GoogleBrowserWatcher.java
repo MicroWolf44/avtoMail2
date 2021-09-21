@@ -10,7 +10,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class GoogleBrowser extends Base {
+public class GoogleBrowserWatcher extends ConnectWebDriver {
 
     @Rule
     public TestWatcher watcher;

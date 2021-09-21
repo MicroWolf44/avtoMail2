@@ -2,7 +2,7 @@ package tests.googleTest;
 
 import org.openqa.selenium.WebDriver;
 
-public class Base {
+public class ConnectWebDriver {
 
     /**
      * Объявление подключения драйвера для работы с браузером.

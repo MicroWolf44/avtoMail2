@@ -1,15 +1,15 @@
 package tests.googleTest.mailInGoogleChrome;
 
-import MailGoogleChrome.PageObject.MailStart;
+import MailGoogleChrome.PageObject.XpathRequest;
 import org.junit.Test;
-import tests.googleTest.GoogleBrowser;
+import tests.googleTest.GoogleBrowserWatcher;
 
-public class MailRu extends GoogleBrowser {
+public class StepsTest extends GoogleBrowserWatcher {
 
     @Test
     public void mailTest(){
 
-        MailStart testOne = new MailStart(getDriver());
+        XpathRequest testOne = new XpathRequest(getDriver());
 
         /**
          * Шаги выполнения теста.

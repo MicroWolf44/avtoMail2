@@ -7,12 +7,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BaseGoogle {
+public class BrowserParameters {
 
     private WebDriver driver;
     private int timeOut = 20;
 
-    public BaseGoogle(final WebDriver driver){
+    public BrowserParameters(final WebDriver driver){
 
         PageFactory.initElements(driver, this);
         this.driver = driver;
