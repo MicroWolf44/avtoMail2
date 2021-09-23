@@ -8,9 +8,6 @@ import tests.googleTest.GoogleBrowserWatcher;
 
 public class StepsTest extends GoogleBrowserWatcher {
 
-    String subjectLetter = "Письмо от автотеста";
-    String contentLetter = "Письмо отправлено автотестом. Пусть сам и отвечает";
-
     @Test
     public void mailTest(){
 
@@ -35,13 +32,19 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
         stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
         stepsWrite.setTextToWhom("testavtomatone@mail.ru"); //Вводим почту в поле "Кому"
-        stepsWrite.setTextSubjectLetter(subjectLetter); //Вводим тему письма
-        stepsWrite.setTextContentLetter(contentLetter);  //Вводим текст письма
+        stepsWrite.setTextSubjectLetter("Письмо от автотеста"); //Вводим тему письма
+        stepsWrite.setTextContentLetter("Письмо отправлено автотестом. Пусть сам и отвечает");  //Вводим текст письма
         stepsWrite.setButtonSendMail(); //Отправляем письмо
 
         /**
          * Шаги проверки письма.
          */
+
+        if (stepsCheck.checkModalWindow("Письмо отправлено")){
+            stepsCheck.setButtonCloseModalWindow();
+        }
+        stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
+        stepsCheck.resultFindLetter("Письмо от автотеста"); //Поиск отправленного письма
 
     }
 
