@@ -58,4 +58,15 @@ public class RequestCheckLetter extends BrowserParameters {
         assert result;
     }
 
+    /**
+     * xpath открытие списка писем.
+     */
+
+    @FindBy(xpath = "")
+    WebElement buttonListLetter;
+
+    public void setButtonListLetter(){
+        click(buttonListLetter);
+    }
+
 }
