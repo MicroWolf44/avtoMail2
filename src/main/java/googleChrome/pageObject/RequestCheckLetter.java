@@ -1,6 +1,7 @@
 package googleChrome.pageObject;
 
 import googleChrome.base.BrowserParameters;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -53,7 +54,7 @@ public class RequestCheckLetter extends BrowserParameters {
 
     public void resultFindLetter(final String resultFL){
 
-        String xpath = ".//span[text()='"+resultFL+"']";
+        String xpath = ".//descendant::div[@id='app-canvas']//span[text()='"+resultFL+"')]";
         boolean result = waitOfElement(xpath);
         assert result;
     }
@@ -62,7 +63,7 @@ public class RequestCheckLetter extends BrowserParameters {
      * xpath открытие списка писем.
      */
 
-    @FindBy(xpath = "")
+    @FindBy(xpath = ".//span[text()='Письмо от автотеста']")
     WebElement buttonListLetter;
 
     public void setButtonListLetter(){

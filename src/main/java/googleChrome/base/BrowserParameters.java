@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class BrowserParameters {
 
     private WebDriver driver;
-    private int timeOut = 20;
+    private int timeOut = 60;
 
     public BrowserParameters(final WebDriver driver){
 

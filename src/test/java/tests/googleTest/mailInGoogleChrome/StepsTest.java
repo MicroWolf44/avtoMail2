@@ -29,22 +29,23 @@ public class StepsTest extends GoogleBrowserWatcher {
          * Шаги отправки письма.
          */
 
-        stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
-        stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
-        stepsWrite.setTextToWhom("testavtomatone@mail.ru"); //Вводим почту в поле "Кому"
-        stepsWrite.setTextSubjectLetter("Письмо от автотеста"); //Вводим тему письма
-        stepsWrite.setTextContentLetter("Письмо отправлено автотестом. Пусть сам и отвечает");  //Вводим текст письма
-        stepsWrite.setButtonSendMail(); //Отправляем письмо
+        //stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
+        //stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
+        //stepsWrite.setTextToWhom("testavtomatone@mail.ru"); //Вводим почту в поле "Кому"
+        //stepsWrite.setTextSubjectLetter("Письмо от автотеста"); //Вводим тему письма
+        //stepsWrite.setTextContentLetter("Письмо отправлено автотестом. Пусть сам и отвечает");  //Вводим текст письма
+        //stepsWrite.setButtonSendMail(); //Отправляем письмо
 
         /**
          * Шаги проверки письма.
          */
-
-        if (stepsCheck.checkModalWindow("Письмо отправлено")){
-            stepsCheck.setButtonCloseModalWindow();
-        }
+        //иф не работает если нет окна
+        //if (stepsCheck.checkModalWindow("Письмо отправлено")){
+        //    stepsCheck.setButtonCloseModalWindow();
+        //}
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter("Письмо от автотеста"); //Поиск отправленного письма
+        stepsCheck.setButtonListLetter();
 
     }
 
