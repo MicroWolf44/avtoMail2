@@ -21,6 +21,7 @@ public class RequestCheckLetter extends BrowserParameters {
 
         String xpath = ".//class[text()='"+checkMW+"']";
         boolean result = waitOfElement(xpath);
+        assert result;
         return result;
     }
 
