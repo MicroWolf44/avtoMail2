@@ -55,6 +55,12 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
 
+        /**
+         * Шаги изменения подписи.
+         */
+
+
+
     }
 
 }
