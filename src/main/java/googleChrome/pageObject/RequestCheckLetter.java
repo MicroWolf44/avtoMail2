@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import javax.jws.WebParam;
+
 public class RequestCheckLetter extends BrowserParameters {
 
 
@@ -65,13 +67,13 @@ public class RequestCheckLetter extends BrowserParameters {
      * xpath открытие списка писем.
      */
 
+    //@FindBy(xpath = "(.//descendant::div[@id='app-canvas']//span[text()='Письмо от автотеста'])[1]")
+    //WebElement buttonListLetter;
 
+    public void setButtonListLetter(final String themeLetter){
 
-    @FindBy(xpath = "(.//descendant::div[@id='app-canvas']//span[text()='Письмо от автотеста'])[1]")
-    WebElement buttonListLetter;
-
-    public void setButtonListLetter(){
-
+        String thLetter = "(.//descendant::div[@id='app-canvas']//span[text()='"+themeLetter+"'])[1]";
+        WebElement buttonListLetter = getDriver().findElement(By.xpath(thLetter));
         click(buttonListLetter);
     }
 
