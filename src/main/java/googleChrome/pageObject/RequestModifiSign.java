@@ -51,7 +51,7 @@ public class RequestModifiSign extends BrowserParameters {
      * xpath изменения подписи писем.
      */
 
-    @FindBy(xpath = ".//h2[text()='Имя отправителя и подпись']//..//button[@data-test-id='edit']")
+    @FindBy(xpath = ".//h2[text()='Имя отправителя и подпись']/..//button[@data-test-id='edit']")
     WebElement buttonEditSign;
 
     public void setButtonEditSign(){
@@ -59,12 +59,40 @@ public class RequestModifiSign extends BrowserParameters {
         click(buttonEditSign);
     }
 
+    /**
+     * xpath изменения подписи.
+     */
+
     @FindBy(xpath = ".//small[text()='Подпись']/..//div[@role='textbox']")
     WebElement editTextSign;
 
     public void setEditTextSign(final String text){
 
         sendText(editTextSign, text);
+    }
+
+    /**
+     * xpath нажатия нопки "Сохранить".
+     */
+
+    @FindBy(xpath = ".//h1[text()='Редактирование подписи']/..//span[text()='Сохранить']")
+    WebElement buttonSaveSign;
+
+    public void setButtonSaveSign(){
+
+        click(buttonSaveSign);
+    }
+
+    /**
+     * xpath Нажатия кнопки "Вернуться в почту".
+     */
+
+    @FindBy(xpath = ".//span[text()='Вернуться в почту']")
+    WebElement buttonBack;
+
+    public void setButtonBack(){
+
+        click(buttonBack);
     }
 
 }
