@@ -64,10 +64,13 @@ public class RequestCheckLetter extends BrowserParameters {
      * xpath открытие списка писем.
      */
 
+
+
     @FindBy(xpath = "(.//descendant::div[@id='app-canvas']//span[text()='Письмо от автотеста'])[1]")
     WebElement buttonListLetter;
 
     public void setButtonListLetter(){
+
         click(buttonListLetter);
     }
 
