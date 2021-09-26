@@ -22,7 +22,7 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsLogin.goToURL("https://mail.ru/");    //Вводим адрес в адресную строку
         stepsLogin.setTextToLogin("testavtomatone@mail.ru");   //Вводим почту
         stepsLogin.setButtonEnterPassword();   //Нажимаем кнопку "Ввести пароль"
-        stepsLogin.setTextToPassword("A1v2t3o4");  //Вводим пароль от почты
+        stepsLogin.setTextToPassword("toHOO1rU-ko4");  //Вводим пароль от почты
         stepsLogin.setButtonLoginToMail(); //Нажимаем кнопку "Войти"
 
         /**
@@ -46,6 +46,9 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter("Письмо от автотеста"); //Поиск отправленного письма
         stepsCheck.setButtonListLetter();
+        stepsCheck.setButtonListLetter();
+        stepsCheck.checkThemeLetter("Письмо от автотеста");
+        stepsCheck.checkLetterText("Письмо отправлено автотестом. Пусть сам и отвечает");
 
     }
 

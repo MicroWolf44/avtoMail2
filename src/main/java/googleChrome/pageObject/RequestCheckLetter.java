@@ -57,17 +57,42 @@ public class RequestCheckLetter extends BrowserParameters {
         String xpath = ".//descendant::div[@id='app-canvas']//span[text()='"+resultFL+"')]";
         boolean result = waitOfElement(xpath);
         assert result;
+
     }
 
     /**
      * xpath открытие списка писем.
      */
 
-    @FindBy(xpath = ".//span[text()='Письмо от автотеста']")
+    @FindBy(xpath = "(.//descendant::div[@id='app-canvas']//span[text()='Письмо от автотеста'])[1]")
     WebElement buttonListLetter;
 
     public void setButtonListLetter(){
         click(buttonListLetter);
+    }
+
+    /**
+     * xpath проверки темы письма.
+     */
+
+    public void checkThemeLetter(final String resultTL){
+
+        String xpath = ".//h2[text()='"+resultTL+"')]";
+        boolean result = waitOfElement(xpath);
+        assert result;
+
+    }
+
+    /**
+     * xpath проверки содержимого письма.
+     */
+
+    public void checkLetterText(final String resultTL){
+
+        String xpath = ".//div[text()='"+resultTL+"')]";
+        boolean result = waitOfElement(xpath);
+        assert result;
+
     }
 
 }
