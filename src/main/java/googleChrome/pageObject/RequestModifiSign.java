@@ -15,7 +15,7 @@ public class RequestModifiSign extends BrowserParameters {
      * xpath открытия настроек.
      */
 
-    @FindBy(xpath = ".//span[@title='Настройки']")
+    @FindBy(xpath = ".//div[contains(@class,'sidebar')]//span[contains(@class,'settings')]")
     WebElement findSetting;
 
     public void setFindSetting(){
@@ -39,7 +39,7 @@ public class RequestModifiSign extends BrowserParameters {
      * xpath открытие настроек писем.
      */
 
-    @FindBy(xpath = ".//h4[text()='Работа с письмами']")
+    @FindBy(xpath = ".//h4[contains(text(),'Имя и подпись')]")
     WebElement buttonSettingLetter;
 
     public void setButtonSettingLetter(){

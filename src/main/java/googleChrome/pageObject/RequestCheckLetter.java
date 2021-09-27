@@ -66,9 +66,6 @@ public class RequestCheckLetter extends BrowserParameters {
     /**
      * xpath открытие списка писем.
      */
-    //вот так не тру, так как тема письма, которое мы ищем, может измениться
-    //@FindBy(xpath = "(.//descendant::div[@id='app-canvas']//span[text()='Письмо от автотеста'])[1]")
-    //WebElement buttonListLetter;
 
     public void setButtonListLetter(final String themeLetter){
 

@@ -1,5 +1,6 @@
 package tests.googleTest.mailInGoogleChrome;
 
+import googleChrome.base.BrowserParameters;
 import googleChrome.pageObject.RequestCheckLetter;
 import googleChrome.pageObject.RequestLoginToMail;
 import googleChrome.pageObject.RequestModifiSign;
@@ -15,10 +16,12 @@ public class StepsTest extends GoogleBrowserWatcher {
         String themeLetter = "Письмо от автотеста";
         String letterText = "Письмо отправлено автотестом. Пусть сам и отвечает";
 
+        BrowserParameters searchBrowserWindow = new BrowserParameters(getDriver());
         RequestLoginToMail stepsLogin = new RequestLoginToMail(getDriver());
         RequestWriteLetter stepsWrite = new RequestWriteLetter(getDriver());
         RequestCheckLetter stepsCheck = new RequestCheckLetter(getDriver());
         RequestModifiSign stepsModSign = new RequestModifiSign(getDriver());
+
 
         /**
          * Шаги входа в почту.
@@ -48,18 +51,27 @@ public class StepsTest extends GoogleBrowserWatcher {
         //if (stepsCheck.checkModalWindow("Письмо отправлено")){
         //    stepsCheck.setButtonCloseModalWindow();
         //}
+        /**
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
         stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
         stepsCheck.setButtonListLetter(themeLetter);   //Нажатие на последнее письмо с заданным заголовком
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
-
+        */
         /**
          * Шаги изменения подписи.
          */
 
 
+        stepsModSign.setFindSetting();
+        stepsModSign.setButtonAllSetting();
+        searchBrowserWindow.searchWindow();
+        stepsModSign.setButtonSettingLetter();
+        stepsModSign.setButtonEditSign();
+        stepsModSign.setEditTextSign("Новая подпись");
+        stepsModSign.setButtonSaveSign();
+        stepsModSign.setButtonBack();
 
     }
 

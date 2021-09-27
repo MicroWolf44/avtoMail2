@@ -7,6 +7,8 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.Set;
+
 public class BrowserParameters {
 
     private WebDriver driver;
@@ -52,6 +54,26 @@ public class BrowserParameters {
     }
 
     /**
+     * Переключение на новое окно.
+     */
+
+    public void searchWindow(){
+
+        String newWindow = driver.getWindowHandle();
+        String nextWindow = null;
+        Set<String> listWindow = driver.getWindowHandles();
+
+        for (String window: listWindow) {
+            if (!window.equals(newWindow)){
+                nextWindow = window;
+                break;
+            }
+        };
+
+        driver.switchTo().window(nextWindow);
+    }
+
+    /**
      * Инициирование нажатия на кнопку.
      */
     public void click(final  WebElement element){
@@ -75,7 +97,7 @@ public class BrowserParameters {
     public void goToURL(final String url){
 
         getDriver().get(url);
-        getDriver().manage().window().maximize(); //Развернуть во весь экран
+        //getDriver().manage().window().maximize(); //Развернуть во весь экран
     }
 
 }
