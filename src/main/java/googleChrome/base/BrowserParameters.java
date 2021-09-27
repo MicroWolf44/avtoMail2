@@ -97,7 +97,7 @@ public class BrowserParameters {
     public void goToURL(final String url){
 
         getDriver().get(url);
-        //getDriver().manage().window().maximize(); //Развернуть во весь экран
+        getDriver().manage().window().maximize(); //Развернуть во весь экран
     }
 
 }
