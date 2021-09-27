@@ -68,6 +68,7 @@ public class RequestModifiSign extends BrowserParameters {
 
     public void setEditTextSign(final String text){
 
+
         sendText(editTextSign, text);
     }
 
