@@ -8,13 +8,16 @@ import googleChrome.pageObject.RequestWriteLetter;
 import org.junit.Test;
 import tests.googleTest.GoogleBrowserWatcher;
 
+
 public class StepsTest extends GoogleBrowserWatcher {
 
     @Test
     public void mailTest(){
 
+        String email = "testavtomatone@mail.ru";
         String themeLetter = "Письмо от автотеста";
         String letterText = "Письмо отправлено автотестом. Пусть сам и отвечает";
+        String testSign = "Новая подпись";
 
         BrowserParameters searchBrowserWindow = new BrowserParameters(getDriver());
         RequestLoginToMail stepsLogin = new RequestLoginToMail(getDriver());
@@ -28,7 +31,7 @@ public class StepsTest extends GoogleBrowserWatcher {
          */
 
         stepsLogin.goToURL("https://mail.ru/");    //Вводим адрес в адресную строку
-        stepsLogin.setTextToLogin("testavtomatone@mail.ru");   //Вводим почту
+        stepsLogin.setTextToLogin(email);   //Вводим почту
         stepsLogin.setButtonEnterPassword();   //Нажимаем кнопку "Ввести пароль"
         stepsLogin.setTextToPassword("toHOO1rU-ko4");  //Вводим пароль от почты
         stepsLogin.setButtonLoginToMail(); //Нажимаем кнопку "Войти"
@@ -39,7 +42,7 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
         stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
         stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
-        stepsWrite.setTextToWhom("testavtomatone@mail.ru"); //Вводим почту в поле "Кому"
+        stepsWrite.setTextToWhom(email); //Вводим почту в поле "Кому"
         stepsWrite.setTextSubjectLetter(themeLetter); //Вводим тему письма
         stepsWrite.setTextContentLetter(letterText);  //Вводим текст письма
         stepsWrite.setButtonSendMail(); //Отправляем письмо
@@ -63,16 +66,23 @@ public class StepsTest extends GoogleBrowserWatcher {
          * Шаги изменения подписи.
          */
 
-
+        /**
         stepsModSign.setFindSetting();
         stepsModSign.setButtonAllSetting();
         searchBrowserWindow.searchWindow();
         stepsModSign.setButtonSettingLetter();
         stepsModSign.setButtonEditSign();
-        stepsModSign.setEditTextSign("Новая подпись");
+        stepsModSign.setEditTextSign("textSign");
         stepsModSign.setButtonSaveSign();
         stepsModSign.setButtonBack();
+        */
+
+        /**
+         * Шаги проверки измененной подмиси
+         */
+
+        stepsWrite.setButtonWriteLetter();
+        stepsCheck.checkModalWindow("Отправить");
 
     }
-
 }
