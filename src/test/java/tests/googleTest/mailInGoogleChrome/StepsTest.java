@@ -78,11 +78,40 @@ public class StepsTest extends GoogleBrowserWatcher {
         */
 
         /**
-         * Шаги проверки измененной подмиси
+         * Шаги проверки измененной подписи.
          */
-
+        /**
         stepsWrite.setButtonWriteLetter();
         stepsCheck.checkModalWindow("Отправить");
+        stepsModSign.checkNewSign(testSign);
+        */
+        /**
+         * Повторная отправка письма.
+         */
+        /**
+         stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
+         stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
+         stepsWrite.setTextToWhom(email); //Вводим почту в поле "Кому"
+         stepsWrite.setTextSubjectLetter(themeLetter); //Вводим тему письма
+         stepsWrite.setTextContentLetter(letterText);  //Вводим текст письма
+         stepsWrite.setButtonSendMail(); //Отправляем письмо
+         */
+        /**
+         * Шаги проверки письма.
+         */
+        //иф не работает если нет окна
+        //if (stepsCheck.checkModalWindow("Письмо отправлено")){
+        //    stepsCheck.setButtonCloseModalWindow();
+        //}
+        /**
+         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
+         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
+         stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
+         stepsCheck.setButtonListLetter(themeLetter);   //Нажатие на последнее письмо с заданным заголовком
+         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
+         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
+         */
+
 
     }
 }
