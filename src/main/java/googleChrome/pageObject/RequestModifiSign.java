@@ -1,6 +1,7 @@
 package googleChrome.pageObject;
 
 import googleChrome.base.BrowserParameters;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -94,6 +95,18 @@ public class RequestModifiSign extends BrowserParameters {
     public void setButtonBack(){
 
         click(buttonBack);
+    }
+
+    /**
+     * Проверка подписи
+     */
+
+    public void checkNewSign (final String text){
+
+        String xpath = ".//div[contains(text(),'"+text+"')]";
+        WebElement checkSign = getDriver().findElement(By.xpath(xpath));
+        boolean chSign = waitOfElement(checkSign);
+        assert chSign;
     }
 
 }
