@@ -40,30 +40,30 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги отправки письма.
          */
-
+        /**
         stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
         stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
         stepsWrite.setTextToWhom(email); //Вводим почту в поле "Кому"
         stepsWrite.setTextSubjectLetter(themeLetter); //Вводим тему письма
         stepsWrite.setTextContentLetter(letterText);  //Вводим текст письма
         stepsWrite.setButtonSendMail(); //Отправляем письмо
-
+        */
         /**
          * Шаги проверки письма.
          */
-
+        /**
          //Проверка наличия МО "Письмо отправлено"
         if (stepsCheck.checkModalWindow("Письмо отправлено")){
            stepsCheck.setButtonCloseModalWindow();
         }
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
-        stepsCheck.resultFindLetter("Письмо от автотеста"); //Поиск отправленного письма
+        stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
         for (int i = 0; i < 2; i++) {
-            stepsCheck.setButtonListLetter("Письмо от автотеста");   //Раскрытие списка писем и нажатие на последнее письмо с заданным заголовком
+            stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем и нажатие на последнее письмо с заданным заголовком
         }
-        stepsCheck.checkThemeLetter("Письмо от автотеста"); //Проверка темы письма
+        stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
-
+        */
         /**
          * Шаги изменения подписи.
          */
@@ -108,8 +108,9 @@ public class StepsTest extends GoogleBrowserWatcher {
         }
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
-        stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
-        stepsCheck.setButtonListLetter(themeLetter);   //Нажатие на последнее письмо с заданным заголовком
+         for (int i = 0; i < 2; i++) {
+         stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем и нажатие на последнее письмо с заданным заголовком
+         }
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
         stepsModSign.checkNewSign(testSign); //Проверка новой подписи

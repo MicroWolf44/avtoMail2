@@ -21,7 +21,7 @@ public class RequestCheckLetter extends BrowserParameters {
     public boolean checkModalWindow(final String checkMW) {
 
         String xpath = ".//class[text()='"+checkMW+"']";
-        boolean result = waitOfElement(xpath);
+        boolean result = waitOfElementVis(xpath);
         return result;
 
     }
@@ -57,7 +57,7 @@ public class RequestCheckLetter extends BrowserParameters {
     public void resultFindLetter(final String resultFL){
 
         String xpath = ".//descendant::div[@class='app-canvas']//span[text()='"+resultFL+"')]";
-        boolean result = waitOfElementVis(xpath);
+        boolean result = waitOfElement(xpath);
         assert result;
 
     }
