@@ -49,7 +49,7 @@ public class RequestModifiSign extends BrowserParameters {
     }
 
     /**
-     * xpath изменения подписи писем.
+     * xpath открытия МО изменения подписи писем.
      */
 
     @FindBy(xpath = ".//h2[text()='Имя отправителя и подпись']/..//button[@data-test-id='edit']")

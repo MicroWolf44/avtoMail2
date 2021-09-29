@@ -51,38 +51,40 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги проверки письма.
          */
-        /**if (stepsCheck.checkModalWindow("Письмо отправлено")){
+
+         //Проверка наличия МО "Письмо отправлено"
+        if (stepsCheck.checkModalWindow("Письмо отправлено")){
            stepsCheck.setButtonCloseModalWindow();
         }
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
-        stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
-        stepsCheck.setButtonListLetter(themeLetter);   //Нажатие на последнее письмо с заданным заголовком
+        stepsCheck.setButtonListLetter("Письмо от автотеста");   //Раскрытие списка писем
+        stepsCheck.setButtonListLetter("Письмо от автотеста");   //Нажатие на последнее письмо с заданным заголовком
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
-        */
+
         /**
          * Шаги изменения подписи.
          */
 
         /**
-        stepsModSign.setFindSetting();
-        stepsModSign.setButtonAllSetting();
-        searchBrowserWindow.searchWindow();
-        stepsModSign.setButtonSettingLetter();
-        stepsModSign.setButtonEditSign();
-        stepsModSign.setEditTextSign("textSign");
-        stepsModSign.setButtonSaveSign();
-        stepsModSign.setButtonBack();
+        stepsModSign.setFindSetting();  //Раскрытие элекмента с настройками
+        stepsModSign.setButtonAllSetting(); //Переход в общие настройки
+        searchBrowserWindow.searchWindow(); //Проверка активного окна
+        stepsModSign.setButtonSettingLetter();  //Нажатие на настройки писем
+        stepsModSign.setButtonEditSign();   //Открыти МО настроек подписи
+        stepsModSign.setEditTextSign("textSign");   //Изменение подписи
+        stepsModSign.setButtonSaveSign();   //Сохранение изменений подписи
+        stepsModSign.setButtonBack();   //Переход в почтовый ящик
         */
 
         /**
          * Шаги проверки измененной подписи.
          */
         /**
-        stepsWrite.setButtonWriteLetter();
-        stepsCheck.checkModalWindow("Отправить");
-        stepsModSign.checkNewSign(testSign);
+        stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
+        stepsCheck.checkModalWindow("Отправить");   //Проверка что находимся на форме создания
+        stepsModSign.checkNewSign(testSign);    //Проверяем подпись
         */
         /**
          * Повторная отправка письма.
@@ -98,19 +100,19 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги проверки письма.
          */
-
+        //Проверка наличия МО "Письмо отправлено"
+        /**
         if (stepsCheck.checkModalWindow("Письмо отправлено")) {
             stepsCheck.setButtonCloseModalWindow();
         }
-
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
         stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
         stepsCheck.setButtonListLetter(themeLetter);   //Нажатие на последнее письмо с заданным заголовком
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
-        stepsModSign.checkNewSign(testSign);
-
+        stepsModSign.checkNewSign(testSign); //Проверка новой подписи
+        */
         /**
          * Шаги удаления письма.
          */
