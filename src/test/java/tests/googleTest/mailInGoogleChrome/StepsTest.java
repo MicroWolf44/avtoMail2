@@ -40,14 +40,14 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги отправки письма.
          */
-        /**
+
         stepsWrite.setButtonWriteLetter();  //Нажимаем кнопку "Написать письмо"
         stepsWrite.checkWindow("Отправить");    //Проверяем что находимся на форме создания
         stepsWrite.setTextToWhom(email); //Вводим почту в поле "Кому"
         stepsWrite.setTextSubjectLetter(themeLetter); //Вводим тему письма
         stepsWrite.setTextContentLetter(letterText);  //Вводим текст письма
         stepsWrite.setButtonSendMail(); //Отправляем письмо
-        */
+
         /**
          * Шаги проверки письма.
          */
@@ -57,10 +57,11 @@ public class StepsTest extends GoogleBrowserWatcher {
            stepsCheck.setButtonCloseModalWindow();
         }
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
-        stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
-        stepsCheck.setButtonListLetter("Письмо от автотеста");   //Раскрытие списка писем
-        stepsCheck.setButtonListLetter("Письмо от автотеста");   //Нажатие на последнее письмо с заданным заголовком
-        stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
+        stepsCheck.resultFindLetter("Письмо от автотеста"); //Поиск отправленного письма
+        for (int i = 0; i < 2; i++) {
+            stepsCheck.setButtonListLetter("Письмо от автотеста");   //Раскрытие списка писем и нажатие на последнее письмо с заданным заголовком
+        }
+        stepsCheck.checkThemeLetter("Письмо от автотеста"); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
 
         /**

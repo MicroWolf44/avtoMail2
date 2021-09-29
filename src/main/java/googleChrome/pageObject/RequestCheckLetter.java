@@ -56,8 +56,8 @@ public class RequestCheckLetter extends BrowserParameters {
 
     public void resultFindLetter(final String resultFL){
 
-        String xpath = ".//descendant::div[@id='app-canvas']//span[text()='"+resultFL+"')]";
-        boolean result = waitOfElement(xpath);
+        String xpath = ".//descendant::div[@class='app-canvas']//span[text()='"+resultFL+"')]";
+        boolean result = waitOfElementVis(xpath);
         assert result;
 
     }
@@ -69,8 +69,14 @@ public class RequestCheckLetter extends BrowserParameters {
     public void setButtonListLetter(final String themeLetter){
 
         String thLetter = "(.//descendant::div[@id='app-canvas']//span[text()='"+themeLetter+"'])[1]";
-        WebElement buttonListLetter = getDriver().findElement(By.xpath(thLetter));
-        click(buttonListLetter);
+        try {
+
+            WebElement buttonListLetter = getDriver().findElement(By.xpath(thLetter));
+            click(buttonListLetter);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     /**

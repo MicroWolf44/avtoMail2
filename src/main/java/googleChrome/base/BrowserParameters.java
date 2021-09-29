@@ -9,10 +9,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Set;
 
+import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
+
 public class BrowserParameters {
 
     private WebDriver driver;
-    private int timeOut = 60;
+    private int timeOut = 30;
 
     public BrowserParameters(final WebDriver driver){
 
@@ -40,6 +42,20 @@ public class BrowserParameters {
     }
 
     protected boolean waitOfElement(final String xpath){
+
+        WebDriverWait webDriverWait = new WebDriverWait(driver, timeOut);
+
+        try {
+            webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    protected boolean waitOfElementVis(final String xpath){
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, timeOut);
 
