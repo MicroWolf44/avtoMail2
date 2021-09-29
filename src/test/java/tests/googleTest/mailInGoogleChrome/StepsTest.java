@@ -19,7 +19,6 @@ public class StepsTest extends GoogleBrowserWatcher {
         String letterText = "Письмо отправлено автотестом. Пусть сам и отвечает";
         String testSign = "Новая подпись";
 
-
         BrowserParameters searchBrowserWindow = new BrowserParameters(getDriver());
         RequestLoginToMail stepsLogin = new RequestLoginToMail(getDriver());
         RequestWriteLetter stepsWrite = new RequestWriteLetter(getDriver());
@@ -114,10 +113,14 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
         stepsModSign.checkNewSign(testSign); //Проверка новой подписи
+        stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         */
         /**
          * Шаги удаления письма.
          */
+
+        stepsCheck.setButtonListLetter(themeLetter);
+
 
     }
 }
