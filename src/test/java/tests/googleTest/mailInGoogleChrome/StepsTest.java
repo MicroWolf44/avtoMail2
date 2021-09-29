@@ -51,11 +51,9 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги проверки письма.
          */
-        //иф не работает если нет окна
-        //if (stepsCheck.checkModalWindow("Письмо отправлено")){
-        //    stepsCheck.setButtonCloseModalWindow();
-        //}
-        /**
+        /**if (stepsCheck.checkModalWindow("Письмо отправлено")){
+           stepsCheck.setButtonCloseModalWindow();
+        }
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
         stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
@@ -100,11 +98,10 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги проверки письма.
          */
-        //иф не работает если нет окна
 
-        //if (stepsCheck.checkModalWindow("Письмо отправлено")){
-        //    stepsCheck.setButtonCloseModalWindow();
-        //}
+        if (stepsCheck.checkModalWindow("Письмо отправлено")) {
+            stepsCheck.setButtonCloseModalWindow();
+        }
 
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма

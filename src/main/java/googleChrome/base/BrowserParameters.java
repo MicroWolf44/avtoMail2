@@ -44,7 +44,7 @@ public class BrowserParameters {
         WebDriverWait webDriverWait = new WebDriverWait(driver, timeOut);
 
         try {
-            webDriverWait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
+            webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
             return true;
         }
         catch (Exception e){
