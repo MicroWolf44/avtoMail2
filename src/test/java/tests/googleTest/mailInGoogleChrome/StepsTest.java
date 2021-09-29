@@ -19,6 +19,7 @@ public class StepsTest extends GoogleBrowserWatcher {
         String letterText = "Письмо отправлено автотестом. Пусть сам и отвечает";
         String testSign = "Новая подпись";
 
+
         BrowserParameters searchBrowserWindow = new BrowserParameters(getDriver());
         RequestLoginToMail stepsLogin = new RequestLoginToMail(getDriver());
         RequestWriteLetter stepsWrite = new RequestWriteLetter(getDriver());
@@ -95,23 +96,27 @@ public class StepsTest extends GoogleBrowserWatcher {
          stepsWrite.setTextSubjectLetter(themeLetter); //Вводим тему письма
          stepsWrite.setTextContentLetter(letterText);  //Вводим текст письма
          stepsWrite.setButtonSendMail(); //Отправляем письмо
-         */
+         **
         /**
          * Шаги проверки письма.
          */
         //иф не работает если нет окна
+
         //if (stepsCheck.checkModalWindow("Письмо отправлено")){
         //    stepsCheck.setButtonCloseModalWindow();
         //}
-        /**
-         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
-         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
-         stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
-         stepsCheck.setButtonListLetter(themeLetter);   //Нажатие на последнее письмо с заданным заголовком
-         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
-         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
-         */
 
+        stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
+        stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
+        stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем
+        stepsCheck.setButtonListLetter(themeLetter);   //Нажатие на последнее письмо с заданным заголовком
+        stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
+        stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
+        stepsModSign.checkNewSign(testSign);
+
+        /**
+         * Шаги удаления письма.
+         */
 
     }
 }

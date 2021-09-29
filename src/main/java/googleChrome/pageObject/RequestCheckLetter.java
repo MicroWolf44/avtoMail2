@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import javax.jws.WebParam;
 
 public class RequestCheckLetter extends BrowserParameters {
 
@@ -16,15 +15,16 @@ public class RequestCheckLetter extends BrowserParameters {
     }
 
     /**
-     * xpath проверка отображения страницы.
+     * xpath проверка отображения окна "Письмо отправлено".
      */
 
     public boolean checkModalWindow(final String checkMW) {
 
         String xpath = ".//class[text()='"+checkMW+"']";
+        //assert result;
         boolean result = waitOfElement(xpath);
-        assert result;
         return result;
+
     }
 
     /**
