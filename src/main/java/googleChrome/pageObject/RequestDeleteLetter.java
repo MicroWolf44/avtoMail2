@@ -6,6 +6,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RequestDeleteLetter extends BrowserParameters {
 
     public RequestDeleteLetter(WebDriver driver) {
@@ -30,20 +33,14 @@ public class RequestDeleteLetter extends BrowserParameters {
 
     public int sizeLetter(final String themeLetter){
 
-        String xpath = "(.//descendant::div[@class='app-canvas']//span[text() = '"+themeLetter+"']";
-        try {
-            int size = getDriver().findElements(By.xpath(xpath)).size();
-            return size;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-        }
-        return 0;
+        ArrayList<WebElement> xpath = (ArrayList<WebElement>) getDriver().findElements(By.xpath(".//descendant::div[@class='app-canvas']//span[text() = '"+themeLetter+"']"));
+        int size = xpath.size();
+        return size;
     }
 
     public void buttonCheckLetter(final String themeLetter, int size){
 
-        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])["+size+"]";
+        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::div[@class = 'draggable']//div[@class = 'checkbox'])["+size+"]";
         try {
             WebElement useCheck = getDriver().findElement(By.xpath(xpath));
             click(useCheck);
@@ -51,5 +48,13 @@ public class RequestDeleteLetter extends BrowserParameters {
         catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    @FindBy(xpath = ".//descendant::div[@id = 'app-canvas']//span[text() = 'Удалить']")
+    WebElement buttonDelete;
+
+    public void setButtonDelete(){
+
+        click(buttonDelete);
     }
 }

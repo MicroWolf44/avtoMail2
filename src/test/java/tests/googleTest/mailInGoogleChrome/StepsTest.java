@@ -119,13 +119,14 @@ public class StepsTest extends GoogleBrowserWatcher {
 
         stepsCheck.setButtonGoToIn();
         stepsCheck.setButtonListLetter(themeLetter);
-        while (stepsDelete.setCheckShowMoreLetter()==true){
-            stepsDelete.setButtonShowMoreLetter();
-        }
+        //while (stepsDelete.setCheckShowMoreLetter()==true){
+        //    stepsDelete.setButtonShowMoreLetter();
+        //}
+
         int size = stepsDelete.sizeLetter(themeLetter);
         for (int i=1; i <= size; i++){
             stepsDelete.buttonCheckLetter(themeLetter, i);
         }
-
+        stepsDelete.setButtonDelete();
     }
 }
