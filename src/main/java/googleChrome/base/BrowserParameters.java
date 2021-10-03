@@ -116,4 +116,5 @@ public class BrowserParameters {
         getDriver().manage().window().maximize(); //Развернуть во весь экран
     }
 
+
 }

@@ -1,10 +1,7 @@
 package tests.googleTest.mailInGoogleChrome;
 
 import googleChrome.base.BrowserParameters;
-import googleChrome.pageObject.RequestCheckLetter;
-import googleChrome.pageObject.RequestLoginToMail;
-import googleChrome.pageObject.RequestModifiSign;
-import googleChrome.pageObject.RequestWriteLetter;
+import googleChrome.pageObject.*;
 import org.junit.Test;
 import tests.googleTest.GoogleBrowserWatcher;
 
@@ -24,6 +21,7 @@ public class StepsTest extends GoogleBrowserWatcher {
         RequestWriteLetter stepsWrite = new RequestWriteLetter(getDriver());
         RequestCheckLetter stepsCheck = new RequestCheckLetter(getDriver());
         RequestModifiSign stepsModSign = new RequestModifiSign(getDriver());
+        RequestDeleteLetter stepsDelete = new RequestDeleteLetter(getDriver());
 
 
         /**
@@ -113,14 +111,21 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
         stepsModSign.checkNewSign(testSign); //Проверка новой подписи
-        stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
+
         */
         /**
          * Шаги удаления письма.
          */
 
+        stepsCheck.setButtonGoToIn();
         stepsCheck.setButtonListLetter(themeLetter);
-
+        while (stepsDelete.setCheckShowMoreLetter()==true){
+            stepsDelete.setButtonShowMoreLetter();
+        }
+        int size = stepsDelete.sizeLetter(themeLetter);
+        for (int i=1; i <= size; i++){
+            stepsDelete.buttonCheckLetter(themeLetter, i);
+        }
 
     }
 }
