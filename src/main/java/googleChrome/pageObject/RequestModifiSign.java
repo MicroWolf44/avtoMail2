@@ -1,0 +1,112 @@
+package googleChrome.pageObject;
+
+import googleChrome.base.BrowserParameters;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+
+public class RequestModifiSign extends BrowserParameters {
+
+    public RequestModifiSign(WebDriver driver) {
+        super(driver);
+    }
+
+    /**
+     * xpath открытия настроек.
+     */
+
+    @FindBy(xpath = ".//div[contains(@class,'sidebar')]//span[contains(@class,'settings')]")
+    WebElement findSetting;
+
+    public void setFindSetting(){
+
+        click(findSetting);
+    }
+
+    /**
+     * xpath переход в общие настройки.
+     */
+
+    @FindBy(xpath = ".//span[text()='Все настройки']")
+    WebElement buttonAllSetting;
+
+    public void setButtonAllSetting(){
+
+        click(buttonAllSetting);
+    }
+
+    /**
+     * xpath открытие настроек писем.
+     */
+
+    @FindBy(xpath = ".//h4[contains(text(),'Имя и подпись')]")
+    WebElement buttonSettingLetter;
+
+    public void setButtonSettingLetter(){
+
+        click(buttonSettingLetter);
+    }
+
+    /**
+     * xpath открытия МО изменения подписи писем.
+     */
+
+    @FindBy(xpath = ".//h2[text()='Имя отправителя и подпись']/..//button[@data-test-id='edit']")
+    WebElement buttonEditSign;
+
+    public void setButtonEditSign(){
+
+        click(buttonEditSign);
+    }
+
+    /**
+     * xpath изменения подписи.
+     */
+
+    @FindBy(xpath = ".//small[text()='Подпись']/..//div[@role='textbox']")
+    WebElement editTextSign;
+
+    public void setEditTextSign(final String text){
+
+        editTextSign.clear();
+        sendText(editTextSign, text);
+    }
+
+    /**
+     * xpath нажатия нопки "Сохранить".
+     */
+
+    @FindBy(xpath = ".//h1[text()='Редактирование подписи']/..//span[text()='Сохранить']")
+    WebElement buttonSaveSign;
+
+    public void setButtonSaveSign(){
+
+        click(buttonSaveSign);
+    }
+
+    /**
+     * xpath Нажатия кнопки "Вернуться в почту".
+     */
+
+    @FindBy(xpath = ".//span[text()='Вернуться в почту']")
+    WebElement buttonBack;
+
+    public void setButtonBack(){
+
+        click(buttonBack);
+    }
+
+    /**
+     * Проверка подписи
+     */
+
+    public void checkNewSign (final String text){
+
+        String xpath = ".//div[contains(text(),'"+text+"')]";
+        WebElement checkSign = getDriver().findElement(By.xpath(xpath));
+        boolean chSign = waitOfElement(checkSign);
+        assert chSign;
+    }
+
+}
