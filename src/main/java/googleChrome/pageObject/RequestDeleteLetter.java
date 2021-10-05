@@ -39,8 +39,8 @@ public class RequestDeleteLetter extends BrowserParameters {
     }
 
     public void buttonCheckLetter(final String themeLetter, int size){
-
-        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::div[@class = 'draggable']//div[@class = 'checkbox'])["+size+"]";
+                        //(.//span[text() = 'Письмо от автотеста']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])[2]
+        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])["+size+"]";
         try {
             WebElement useCheck = getDriver().findElement(By.xpath(xpath));
             click(useCheck);
