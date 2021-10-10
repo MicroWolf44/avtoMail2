@@ -4,8 +4,10 @@ import googleChrome.base.BrowserParameters;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,6 +45,8 @@ public class RequestDeleteLetter extends BrowserParameters {
         String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])["+size+"]";
         try {
             WebElement useCheck = getDriver().findElement(By.xpath(xpath));
+            Actions actions = new Actions(getDriver());
+            actions.moveToElement(useCheck).build().perform();
             click(useCheck);
         }
         catch (Exception e){
