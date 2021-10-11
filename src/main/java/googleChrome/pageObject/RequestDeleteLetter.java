@@ -46,10 +46,11 @@ public class RequestDeleteLetter extends BrowserParameters {
                         //(.//span[text() = 'Письмо от автотеста']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox']//ancestor::a[@tabindex='-1'])[2]
         String xpathTarget = "(.//span[text() = '"+themeLetter+"']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox']//ancestor::a[@tabindex='-1'])["+size+"]";
         try {
-            WebElement useCheck = getDriver().findElement(By.xpath(xpath));
             WebElement actionLetter = getDriver().findElement(By.xpath(xpathTarget));
             Actions actions = new Actions(getDriver());
-            actions.moveToElement(actionLetter).perform();
+            actions.moveToElement(actionLetter).build().perform();
+
+            WebElement useCheck = getDriver().findElement(By.xpath(xpath));
             click(useCheck);
         }
         catch (Exception e){
