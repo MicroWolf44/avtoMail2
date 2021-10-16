@@ -123,10 +123,11 @@ public class StepsTest extends GoogleBrowserWatcher {
         //    stepsDelete.setButtonShowMoreLetter();
         //}
 
-        int size = stepsDelete.sizeLetter(themeLetter);
+        int size = 5; //stepsDelete.sizeLetter(themeLetter);
         for (int i=2; i <= size; i++){
+            stepsDelete.activeCheckBox(themeLetter, i);
             stepsDelete.buttonCheckLetter(themeLetter, i);
         }
-        //stepsDelete.setButtonDelete();
+        stepsDelete.setButtonDelete();
     }
 }
