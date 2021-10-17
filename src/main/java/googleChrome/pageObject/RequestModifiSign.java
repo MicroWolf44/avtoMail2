@@ -101,12 +101,15 @@ public class RequestModifiSign extends BrowserParameters {
      * Проверка подписи
      */
 
-    public void checkNewSign (final String text){
+    public void checkNewSign (final String text) {
 
-        String xpath = ".//div[contains(text(),'"+text+"')]";
-        WebElement checkSign = getDriver().findElement(By.xpath(xpath));
-        boolean chSign = waitOfElement(checkSign);
-        assert chSign;
+        String xpath = ".//div[@data-signature-widget='content']//div[contains(text(),'" + text + "')]";
+        try {
+            WebElement checkSign = getDriver().findElement(By.xpath(xpath));
+            boolean chSign = waitOfElement(checkSign);
+            assert chSign;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-
 }

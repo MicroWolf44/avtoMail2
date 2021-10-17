@@ -8,10 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 
-import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
-
 public class RequestDeleteLetter extends BrowserParameters {
 
     public RequestDeleteLetter(WebDriver driver) {
@@ -36,8 +32,7 @@ public class RequestDeleteLetter extends BrowserParameters {
     public boolean setCheckShowMoreLetter(){
 
         String xpath = ".//div[@class = 'draggable']//a[text() = 'Загрузить ещё']";
-        if (waitOfElement(xpath)) return true;
-        else return false;
+        return waitOfElement(xpath);
 
     }
 
@@ -84,8 +79,7 @@ public class RequestDeleteLetter extends BrowserParameters {
 
     public boolean checkLetter (final String themeLetter){
         String xpath = ".//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled']";
-        boolean result = new Boolean(waitOfElement(xpath));
-        return result;
+        return waitOfElement(xpath);
     }
 
     public void buttonCheckLetter(final String themeLetter){
