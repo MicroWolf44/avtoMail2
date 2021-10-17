@@ -21,7 +21,7 @@ public class RequestCheckLetter extends BrowserParameters {
     public boolean checkModalWindow(final String checkMW) {
 
         String xpath = ".//class[text()='"+checkMW+"']";
-        boolean result = waitOfElementVis(xpath);
+        boolean result = waitOfElement(xpath);
         return result;
 
     }

@@ -83,8 +83,8 @@ public class RequestDeleteLetter extends BrowserParameters {
      */
 
     public boolean checkLetter (final String themeLetter){
-        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled'])[1]";
-        boolean result = waitOfElement(xpath);
+        String xpath = ".//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled']";
+        boolean result = new Boolean(waitOfElement(xpath));
         return result;
     }
 
@@ -100,6 +100,7 @@ public class RequestDeleteLetter extends BrowserParameters {
         }
         catch (Exception e){
             e.printStackTrace();
+
         }
     }
 

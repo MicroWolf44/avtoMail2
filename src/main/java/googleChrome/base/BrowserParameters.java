@@ -51,7 +51,6 @@ public class BrowserParameters {
         }
         catch (Exception e){
             e.printStackTrace();
-            //return false;
         }
         return false;
     }
