@@ -2,6 +2,7 @@ package googleChrome.pageObject;
 
 import googleChrome.base.BrowserParameters;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -44,21 +45,29 @@ public class RequestDeleteLetter extends BrowserParameters {
      * Подсчет количества писем
      */
 
-    public int sizeLetter(final String themeLetter){
+    public boolean sizeLetter(final String themeLetter){
 
-        ArrayList<WebElement> xpath = (ArrayList<WebElement>) getDriver().findElements(By.xpath(".//descendant::div[@class='app-canvas']//span[text() = '"+themeLetter+"']"));
-        int size = xpath.size();
-        return size;
+            //Number xpath = (Number) getDriver().findElement(By.xpath("count(.//descendant::div[@class='app-canvas']//span[text() = '"+themeLetter+"'])"));
+        try {
+            WebElement xpath = getDriver().findElement(By.xpath(".//descendant::div[@class='app-canvas']//span[text() = '"+themeLetter+"']"));
+            JavascriptExecutor run = (JavascriptExecutor) getDriver();
+            run.executeScript("arguments[1].click()", xpath);
+            return true;
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     /**
      * Наведение на письмо, что бы отобразился чекбокс
      */
 
-    public void activeCheckBox (final String themeLetter, int size) {
+    public void activeCheckBox (final String themeLetter) {
 
         //(.//span[text() = 'Письмо от автотеста']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox']//ancestor::a[@tabindex='-1'])[2]
-        String xpathTarget = "(.//span[text() = '" + themeLetter + "']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox']//ancestor::a[@tabindex='-1'])[" + size + "]";
+        String xpathTarget = "(.//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled']//ancestor::a[@tabindex='-1'])[1]";
 
         try {
             WebElement actionLetter = getDriver().findElement(By.xpath(xpathTarget));
@@ -73,9 +82,17 @@ public class RequestDeleteLetter extends BrowserParameters {
      * Выбор чекбокса письма
      */
 
-    public void buttonCheckLetter(final String themeLetter, int size){
+    public boolean checkLetter (final String themeLetter){
+
+        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled'])[1]";
+        boolean result = waitOfElement(xpath);
+        return result;
+    }
+
+    public void buttonCheckLetter(final String themeLetter){
                         //(.//span[text() = 'Письмо от автотеста']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])[2]
-        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])["+size+"]";
+                        //.//descendant::div[@id='app-canvas']//span[text() = 'Письмо от автотеста']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled']
+        String xpath = "(.//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled'])[1]";
 
         try {
 

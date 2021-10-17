@@ -51,8 +51,9 @@ public class BrowserParameters {
         }
         catch (Exception e){
             e.printStackTrace();
+            return false;
         }
-        return false;
+        //return false;
     }
 
     protected boolean waitOfElementVis(final String xpath){
