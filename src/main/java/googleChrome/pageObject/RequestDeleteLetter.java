@@ -33,7 +33,7 @@ public class RequestDeleteLetter extends BrowserParameters {
     }
 
     /**
-     * Выбор чекбокса письма
+     * Поиск письма у которого не стоит чекбокс
      */
 
     public boolean checkLetter(final String themeLetter){
@@ -41,12 +41,9 @@ public class RequestDeleteLetter extends BrowserParameters {
         return waitOfElementVisibility(xpath);
     }
 
-    /**public boolean checkLetterTwo (final String themeLetter){
-        String xpath = ".//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled']";
-        WebElement element = getDriver().findElement(By.xpath(xpath));
-
-        return check;
-    }*/
+    /**
+     * Установка чекбокса
+     */
 
     public void buttonCheckLetter(final String themeLetter){
                         //(.//span[text() = 'Письмо от автотеста']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])[2]
@@ -75,6 +72,10 @@ public class RequestDeleteLetter extends BrowserParameters {
 
         click(buttonDelete);
     }
+
+    /**
+     * Возвращение на страницу со списком писем
+     */
 
     @FindBy(xpath = ".//span[text()='Вернуться']")
     WebElement buttonBack;

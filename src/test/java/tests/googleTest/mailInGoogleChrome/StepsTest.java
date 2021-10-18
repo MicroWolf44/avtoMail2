@@ -12,9 +12,10 @@ public class StepsTest extends GoogleBrowserWatcher {
     public void mailTest(){
 
         String email = "testavtomatone@mail.ru";
-        String themeLetter = "Письмо от автотеста";
-        String letterText = "Письмо отправлено автотестом. Пусть сам и отвечает";
-        String testSign = "Новая подпись";
+        String password = "toHOO1rU-ko4";
+        String themeLetter = "Письмо от автотеста2";
+        String letterText = "Письмо отправлено автотестом. Пусть сам и отвечает2";
+        String testSign = "Новая подпись2";
 
         BrowserParameters searchBrowserWindow = new BrowserParameters(getDriver());
         RequestLoginToMail stepsLogin = new RequestLoginToMail(getDriver());
@@ -31,7 +32,7 @@ public class StepsTest extends GoogleBrowserWatcher {
         stepsLogin.goToURL("https://mail.ru/");    //Вводим адрес в адресную строку
         stepsLogin.setTextToLogin(email);   //Вводим почту
         stepsLogin.setButtonEnterPassword();   //Нажимаем кнопку "Ввести пароль"
-        stepsLogin.setTextToPassword("toHOO1rU-ko4");  //Вводим пароль от почты
+        stepsLogin.setTextToPassword(password);  //Вводим пароль от почты
         stepsLogin.setButtonLoginToMail(); //Нажимаем кнопку "Войти"
 
         /**
