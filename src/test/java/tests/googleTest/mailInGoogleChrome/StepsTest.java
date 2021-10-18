@@ -113,7 +113,7 @@ public class StepsTest extends GoogleBrowserWatcher {
          */
 
         stepsDelete.setButtonBack();   //Возвращаемся на старницу "Входящие"
-        stepsCheck.setButtonListLetter(themeLetter);    //Раскрытие сприска писем
+        //stepsCheck.setButtonListLetter(themeLetter);    //Раскрытие сприска писем
         while (stepsDelete.checkLetter(themeLetter)) {  //Проверка наличия письма с неустановленным чекбоксом
                 stepsDelete.activeCheckBox(themeLetter);    //Навдение на письмо
                 stepsDelete.buttonCheckLetter(themeLetter); //Нажатие на чекбокс

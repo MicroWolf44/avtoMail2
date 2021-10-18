@@ -72,7 +72,7 @@ public class RequestCheckLetter extends BrowserParameters {
         try {
             WebElement buttonListLetter = getDriver().findElement(By.xpath(thLetter));
             click(buttonListLetter);
-
+            Thread.sleep(300);
         }
         catch (Exception e){
             e.printStackTrace();
