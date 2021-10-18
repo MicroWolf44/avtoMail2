@@ -21,7 +21,7 @@ public class RequestCheckLetter extends BrowserParameters {
     public boolean checkModalWindow(final String checkMW) {
 
         String xpath = ".//class[text()='"+checkMW+"']";
-        boolean result = waitOfElement(xpath);
+        boolean result = waitOfElementNoVisibility(xpath);
         return result;
 
     }
@@ -57,7 +57,7 @@ public class RequestCheckLetter extends BrowserParameters {
     public void resultFindLetter(final String resultFL){
 
         String xpath = ".//descendant::div[@class='app-canvas']//span[text()='"+resultFL+"')]";
-        boolean result = waitOfElement(xpath);
+        boolean result = waitOfElementNoVisibility(xpath);
         assert result;
 
     }
@@ -70,9 +70,9 @@ public class RequestCheckLetter extends BrowserParameters {
 
         String thLetter = "(.//descendant::div[@id='app-canvas']//span[text()='"+themeLetter+"'])[1]";
         try {
-
             WebElement buttonListLetter = getDriver().findElement(By.xpath(thLetter));
             click(buttonListLetter);
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -86,7 +86,7 @@ public class RequestCheckLetter extends BrowserParameters {
     public void checkThemeLetter(final String resultTL){
 
         String xpath = ".//h2[text()='"+resultTL+"')]";
-        boolean result = waitOfElement(xpath);
+        boolean result = waitOfElementNoVisibility(xpath);
         assert result;
 
     }
@@ -98,7 +98,7 @@ public class RequestCheckLetter extends BrowserParameters {
     public void checkLetterText(final String resultTL){
 
         String xpath = ".//div[text()='"+resultTL+"')]";
-        boolean result = waitOfElement(xpath);
+        boolean result = waitOfElementNoVisibility(xpath);
         assert result;
 
     }

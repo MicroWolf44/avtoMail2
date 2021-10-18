@@ -15,47 +15,6 @@ public class RequestDeleteLetter extends BrowserParameters {
     }
 
     /**
-     * Нажатие на кнопку "Загрузить еще"
-     */
-
-    @FindBy(xpath = ".//div[@class = 'draggable']//a[text() = 'Загрузить ещё']")
-    WebElement buttonShowMoreLetter;
-
-    public void setButtonShowMoreLetter(){
-
-        click(buttonShowMoreLetter);
-    }
-
-    /**
-     * Проверка наличия кнопки "Загрузить еще"
-     */
-    public boolean setCheckShowMoreLetter(){
-
-        String xpath = ".//div[@class = 'draggable']//a[text() = 'Загрузить ещё']";
-        return waitOfElement(xpath);
-
-    }
-
-    /**
-     * Подсчет количества писем
-     */
-
-    public boolean sizeLetter(final String themeLetter){
-
-            //Number xpath = (Number) getDriver().findElement(By.xpath("count(.//descendant::div[@class='app-canvas']//span[text() = '"+themeLetter+"'])"));
-        try {
-            WebElement xpath = getDriver().findElement(By.xpath(".//descendant::div[@class='app-canvas']//span[text() = '"+themeLetter+"']"));
-            JavascriptExecutor run = (JavascriptExecutor) getDriver();
-            run.executeScript("arguments[1].click()", xpath);
-            return true;
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    /**
      * Наведение на письмо, что бы отобразился чекбокс
      */
 
@@ -77,10 +36,17 @@ public class RequestDeleteLetter extends BrowserParameters {
      * Выбор чекбокса письма
      */
 
-    public boolean checkLetter (final String themeLetter){
-        String xpath = ".//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled']";
-        return waitOfElement(xpath);
+    public boolean checkLetter(final String themeLetter){
+        String xpath = ".//span[text() = '"+themeLetter+"']//ancestor::a//div[contains(@class, 'avatar')]//button[contains(@class,'ll-av ll-av_size_common ll-av_centered')]";
+        return waitOfElementVisibility(xpath);
     }
+
+    /**public boolean checkLetterTwo (final String themeLetter){
+        String xpath = ".//span[text() = '"+themeLetter+"']//ancestor::a[@tabindex='-1']//div[@class='checkbox__box checkbox__box_disabled']";
+        WebElement element = getDriver().findElement(By.xpath(xpath));
+
+        return check;
+    }*/
 
     public void buttonCheckLetter(final String themeLetter){
                         //(.//span[text() = 'Письмо от автотеста']//ancestor::div[@class = 'draggable']//input[@type = 'checkbox'])[2]
@@ -108,5 +74,13 @@ public class RequestDeleteLetter extends BrowserParameters {
     public void setButtonDelete(){
 
         click(buttonDelete);
+    }
+
+    @FindBy(xpath = ".//span[text()='Вернуться']")
+    WebElement buttonBack;
+
+    public void setButtonBack(){
+
+        click(buttonBack);
     }
 }

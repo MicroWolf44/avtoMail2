@@ -41,7 +41,7 @@ public class BrowserParameters {
         return false;
     }
 
-    protected boolean waitOfElement(final String xpath){
+    protected boolean waitOfElementNoVisibility(final String xpath){
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, timeOut);
 
@@ -55,7 +55,7 @@ public class BrowserParameters {
         return false;
     }
 
-    protected boolean waitOfElementVis(final String xpath){
+    protected boolean waitOfElementVisibility(final String xpath){
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, timeOut);
 

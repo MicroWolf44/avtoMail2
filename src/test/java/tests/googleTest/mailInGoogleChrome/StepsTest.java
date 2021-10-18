@@ -94,14 +94,15 @@ public class StepsTest extends GoogleBrowserWatcher {
         /**
          * Шаги проверки письма.
          */
+
         //Проверка наличия МО "Письмо отправлено"
         if (stepsCheck.checkModalWindow("Письмо отправлено")) {
             stepsCheck.setButtonCloseModalWindow();
         }
         stepsCheck.setButtonGoToIn();   //Переход на страницу "Входящие"
         stepsCheck.resultFindLetter(themeLetter); //Поиск отправленного письма
-         for (int i = 0; i < 2; i++) {
-         stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем и нажатие на последнее письмо с заданным заголовком
+         for (int j = 0; j < 2; j++) {
+            stepsCheck.setButtonListLetter(themeLetter);   //Раскрытие списка писем и нажатие на последнее письмо с заданным заголовком
          }
         stepsCheck.checkThemeLetter(themeLetter); //Проверка темы письма
         stepsCheck.checkLetterText(letterText);   //Проверка содержимого письма
@@ -111,12 +112,12 @@ public class StepsTest extends GoogleBrowserWatcher {
          * Шаги удаления письма.
          */
 
-        stepsCheck.setButtonGoToIn();
-        stepsCheck.setButtonListLetter(themeLetter);
-        while (stepsDelete.checkLetter(themeLetter)){
-            stepsDelete.activeCheckBox(themeLetter);
-            stepsDelete.buttonCheckLetter(themeLetter);
+        stepsDelete.setButtonBack();   //Возвращаемся на старницу "Входящие"
+        stepsCheck.setButtonListLetter(themeLetter);    //Раскрытие сприска писем
+        while (stepsDelete.checkLetter(themeLetter)) {  //Проверка наличия письма с неустановленным чекбоксом
+                stepsDelete.activeCheckBox(themeLetter);    //Навдение на письмо
+                stepsDelete.buttonCheckLetter(themeLetter); //Нажатие на чекбокс
         }
-        stepsDelete.setButtonDelete();
+        stepsDelete.setButtonDelete();  //удаление выбранных писем
     }
 }

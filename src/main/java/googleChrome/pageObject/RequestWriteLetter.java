@@ -30,7 +30,7 @@ public class RequestWriteLetter extends BrowserParameters {
     public void checkWindow(final String checkWin){
 
         String xpath = ".//span[text()='"+checkWin+"']";
-        boolean result = waitOfElement(xpath);
+        boolean result = waitOfElementNoVisibility(xpath);
         assert result;
     }
 
